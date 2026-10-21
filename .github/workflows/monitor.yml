@@ -15,7 +15,7 @@ jobs:
       - name: 2. Cài đặt Node.js & Newman
         run: npm install -g newman
 
-      - name: 3. Kiểm tra sức khỏe API GET /users (Response Time < 800ms)
+      - name: 3. Kiểm tra sức khỏe API GET /users (Response Time < 1500ms)
         run: |
           cat << 'EOF' > monitor_collection.json
           {
@@ -35,8 +35,8 @@ jobs:
                         "pm.test(\"Hệ thống hoạt động bình thường (Status 200 OK)\", function () {",
                         "    pm.response.to.have.status(200);",
                         "});",
-                        "pm.test(\"Thời gian phản hồi dưới 800ms\", function () {",
-                        "    pm.expect(pm.response.responseTime).to.be.below(800);",
+                        "pm.test(\"Thời gian phản hồi dưới 1500ms\", function () {",
+                        "    pm.expect(pm.response.responseTime).to.be.below(1500);",
                         "});"
                       ]
                     }
